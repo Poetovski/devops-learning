@@ -1,0 +1,20 @@
+# Первый CI-пайплайн: проверяет все bash-скрипты через shellcheck
+# и запускает sysinfo.sh на чистой Ubuntu-машине GitHub.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  shell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint shell scripts
+        run: shellcheck scripts/*.sh
+
+      - name: Run sysinfo
+        run: bash scripts/sysinfo.sh

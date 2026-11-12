@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Secrets — никогда не коммитить
+.env
+*.pem
+*.key
+id_*
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
